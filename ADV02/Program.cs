@@ -264,7 +264,7 @@ namespace ADV02
                 #endregion
                 #endregion
 
-                #region Part2
+                
                 #region Q1
                 ArrayList list03 = new ArrayList() { 1, 2, 3, 4, 5 };
                 Console.WriteLine("Original ArrayList:");
@@ -298,10 +298,46 @@ namespace ADV02
                 #endregion
 
                 #region Q3
+                try
+                {
+                    FixedSizeList<int> list = new FixedSizeList<int>(3);
+                    list.Add(10);
+                    list.Add(20);
+                    list.Add(30);
+
+                    // Uncommenting the following line will throw an exception
+                    // list.Add(40); // Exception: List is full. Cannot add more elements.
+
+                    Console.WriteLine("Element at index 1: " + list.Get(1)); // Outputs: 20
+
+                    // Uncommenting the following line will throw an exception
+                    // Console.WriteLine(list.Get(3)); // Exception: Invalid index. Index is out of bounds.
+
+                    Console.WriteLine("Current count: " + list.Count); // Outputs: 3
+                    Console.WriteLine("Capacity: " + list.Capacity);   // Outputs: 3
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                #endregion
+
+                #region Q4
+                string input = "swiss";
+                int index = FirstNonRepeatedCharacter.FindFirstNonRepeatedCharacter(input);
+
+                if (index != -1)
+                {
+                    Console.WriteLine($"The first non-repeated character is '{input[index]}' at index {index}.");
+                }
+                else
+                {
+                    Console.WriteLine("There is no non-repeated character in the string.");
+                }
 
                 #endregion
 
-                #endregion
+
             }
         }
     }
